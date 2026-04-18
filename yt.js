@@ -14,8 +14,10 @@ app.use(cors({ origin: "*", methods: ["GET"] }));
 // ================================
 function loadChannelIDs() {
   try {
-    const raw = fs.readFileSync("channelids.json", "utf8");
-
+fs.readFileSync(
+  path.join(__dirname, "channelids.json"),
+  "utf8"
+);
     // 🔥 Extract ANY UCxxxxxxxx anywhere in the file
     const matches = raw.match(/UC[a-zA-Z0-9_-]{20,}/g);
 
